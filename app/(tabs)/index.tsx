@@ -1,10 +1,12 @@
 // import { api } from "@/convex/_generated/api";
-import useTheme from "@/hooks/useTheme";
+import useTheme, { ColorScheme } from "@/hooks/useTheme";
 // import { useMutation, useQuery } from "convex/react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
-  const { toggleDarkMode } = useTheme();
+  const { toggleDarkMode, colors } = useTheme();
+
+  const styles = createStyles(colors);
 
   return (
     <View style={styles.container}>
@@ -19,15 +21,19 @@ export default function Index() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    gap: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  content: {
-    // color: "white",
-    fontSize: 20,
-  },
-});
+const createStyles = (colors: ColorScheme) => {
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      gap: 10,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: colors.bg,
+    },
+    content: {
+      // color: "white",
+      fontSize: 20,
+    },
+  });
+  return styles;
+};
