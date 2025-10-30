@@ -51,7 +51,7 @@ export const updateTodo = mutation({
   },
 });
 
-export const deleteAllTodos = mutation({
+export const  deleteAllTodos = mutation({
   handler: async (ctx) => {
     const todos = await ctx.db.query("todos").collect();
 

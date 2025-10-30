@@ -33,6 +33,7 @@ export interface ColorScheme {
     editInput: string;
   };
   statusBarStyle: "light-content" | "dark-content";
+  statusBarBackground?: string;
 }
 
 const lightColors: ColorScheme = {
@@ -61,6 +62,7 @@ const lightColors: ColorScheme = {
     editInput: "#ffffff",
   },
   statusBarStyle: "dark-content" as const,
+  statusBarBackground: "white",
 };
 
 const darkColors: ColorScheme = {
